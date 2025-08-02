@@ -1,4 +1,7 @@
 {
+programs.nixvim = {
+  enable = true;
+  
   imports = [
     ./bufferline.nix
     ./cmp.nix
@@ -23,11 +26,9 @@
     ./utils/wilder.nix
   ];
 
-  dependencies.gcc.package = null;
-  colorschemes.dracula.enable = true;
-  plugins.web-devicons.enable = true;
 
-  diagnostic.settings = { virtual_lines.only_current_line = true; };
+  dependencies.gcc.package = null;
+  plugins.web-devicons.enable = true;
 
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
@@ -204,4 +205,5 @@
       options.desc = "Toggle trouble";
     }
   ];
+};
 }
