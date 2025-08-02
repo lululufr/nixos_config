@@ -20,7 +20,8 @@
     
     targets = {
       gtk.enable = true;
-      #i3.enable = true;  # Décommenté si vous voulez que stylix gère i3
+      i3.enable = true;  # Décommenté si vous voulez que stylix gère i3
+      vim.enable = true;
     };
 
     opacity = {
