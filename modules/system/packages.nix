@@ -6,7 +6,6 @@
     wget
     curl
     git
-    stow
     xclip
     firefox
     librewolf

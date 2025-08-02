@@ -11,8 +11,6 @@
     feh
     maim
     xclip
-    xdotool
-    arandr
 
     # Outils de développement
     postman
@@ -20,6 +18,7 @@
     lazygit
 
     # Outils système et CLI
+    vim
     bat
     eza
     ranger

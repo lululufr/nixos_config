@@ -5,7 +5,7 @@ let
     #!${pkgs.bash}/bin/bash
     # Power menu script using rofi with more options
 
-    CHOSEN=$(printf "🔐 Lock\n💤 Suspend\n🔄 Logout\n🟠 Reboot\n🔴 Shutdown\n🖥️ Duplicate Screen\n🖥️ Extend Screen\n📺 HDMI Only\n💻 Laptop Only\n" | ${pkgs.rofi}/bin/rofi -dmenu -p "Power Menu")
+    CHOSEN=$(printf "🔐 Lock\n💤 Suspend\n🔄 Logout\n🟠 Reboot\n🔴 Shutdown\n🖥️ Duplicate Screen\n🖥️ Extend Screen\n" | ${pkgs.rofi}/bin/rofi -dmenu -p "Power Menu")
 
     case "$CHOSEN" in
       "🔐 Lock") ${pkgs.i3lock}/bin/i3lock -c 000000 ;;
@@ -15,8 +15,6 @@ let
       "🔴 Shutdown") systemctl poweroff ;;
       "🖥️ Duplicate Screen") ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --same-as eDP ;;
       "🖥️ Extend Screen") ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --auto --right-of eDP ;;
-      "📺 HDMI Only") ${pkgs.xorg.xrandr}/bin/xrandr --output eDP --off --output HDMI-A-0 --auto ;;
-      "💻 Laptop Only") ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --off --output eDP --auto ;;
       *) exit 1 ;;
     esac
   '';

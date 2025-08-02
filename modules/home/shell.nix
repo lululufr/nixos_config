@@ -18,7 +18,6 @@
       ll = "eza -la --icons --group-directories-first";
       la = "eza -la --icons --group-directories-first";
       lt = "eza --tree --icons";
-      cd = "z";
 
       # Éditeurs
       v = "nvim";
@@ -27,12 +26,9 @@
 
       # Python
       py = "python";
-      pip = "python -m pip";
       venv = "python -m venv";
 
       # Divers
-      weather = "curl https://wttr.in";
-      myip = "curl https://ipinfo.io/ip";
       ports = "ss -tulanp";
     };
 
@@ -55,8 +51,6 @@
       setopt INC_APPEND_HISTORY INTERACTIVE_COMMENTS
       setopt NO_BEEP PROMPT_SUBST
 
-      # Fonctions personnalisées
-      mkcd() { mkdir -p "$1" && cd "$1" }
 
       # FZF key bindings
       source "${pkgs.fzf}/share/fzf/key-bindings.zsh"
