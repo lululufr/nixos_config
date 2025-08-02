@@ -6,10 +6,10 @@
     polarity = "dark";
     
     # Utiliser un chemin absolu pour le wallpaper
-    image = ../../wallpaper.png;
+    #image = ../../wallpaper.png;
     
     # Ou si vous préférez utiliser un thème sans wallpaper :
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/github-dark.yaml";
 
     fonts = {
       monospace = {

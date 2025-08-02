@@ -105,7 +105,7 @@
 
         startup = [
           { command = "--no-startup-id xrandr --output DP-0 --rotate right --left-of DP-2"; always = true; notification = false; }
-         { command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-scale ${config.stylix.image}"; always = true; notification = false; }
+         { command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-scale ../../wallpaper.jpg"; always = true; notification = false; }
           { command = "--no-startup-id picom"; always = false; notification = false; }
           { command = "--no-startup-id dunst"; always = false; notification = false; }
           { command = "--no-startup-id nm-applet"; always = false; notification = false; }

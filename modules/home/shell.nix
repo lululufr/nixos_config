@@ -38,7 +38,7 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "nicoulaj";
       plugins = [
         "git" "docker" "docker-compose" "node" "npm"
         "python" "rust" "sudo" "command-not-found"
