@@ -21,7 +21,7 @@ imports = [
 	./modules/home/desktop/services.nix
 
   ./modules/home/desktop/stylix.nix
-  ./modules/home/nixvim.nix
+  ./modules/home/nixvim/default.nix
 ];
 
 
