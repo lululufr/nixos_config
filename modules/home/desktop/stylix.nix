@@ -20,8 +20,12 @@
     
     targets = {
       gtk.enable = true;
-      i3.enable = true;  # Décommenté si vous voulez que stylix gère i3
+      i3.enable = true; 
+      nixvim.enable = true;
+      alacritty.enable = true;
+      neovim.enable = true;
       vim.enable = true;
+      firefox.enable = true;
     };
 
     opacity = {
