@@ -14,8 +14,8 @@
     ./modules/system/desktop/i3.nix
     ./modules/system/desktop/nvidia.nix
     ./modules/system/shell.nix
-    # ./modules/system/nixvim.nix  # Commenté temporairement
-    ./modules/system/stylix.nix  # Commenté temporairement
+    ./modules/system/nixvim.nix
+    ./modules/system/stylix.nix
 
 
 

@@ -9,8 +9,10 @@
 
     shellAliases = {
       update = "sudo nixos-rebuild switch --upgrade --flake /etc/nixos#tardis-nix";
+      update-git = "cd /etc/nixos && sudo git add -A && sudo git commit -m 'Update NixOS configuration $(date +%Y-%m-%d)' && sudo git push";
       list-gen = "nixos-rebuild list-generations";
       del-gen = "sudo nix-collect-garbage -d && sudo nixos-rebuild switch --flake /etc/nixos#tardis-nix";
+      
     };
 
     histSize = 10000;
