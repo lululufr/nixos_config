@@ -29,11 +29,6 @@
         terminal = "alacritty";
         menu = "rofi -show drun";
 
-        # fonts = {
-        #   names = [ "JetBrainsMono Nerd Font" ];
-        #   size = 10.0;
-        # };
-
         gaps = {
           inner = 2;
           outer = 1;
@@ -65,7 +60,7 @@
           # Applications
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+o" = "exec firefox";
-          "${modifier}+d" = "exec ${menu}";
+          "${modifier}+space" = "exec ${menu}";
           "${modifier}+r" = "exec rofi -show combi";
           "${modifier}+Shift+s" = "exec screenshot";
           "${modifier}+Shift+a" = "exec powermenu";
@@ -94,10 +89,10 @@
           "${modifier}+Shift+l" = "move right";
 
           # Redimensionnement
-          "${modifier}+Ctrl+h" = "resize shrink width 10 px or 10 ppt";
-          "${modifier}+Ctrl+j" = "resize grow height 10 px or 10 ppt";
-          "${modifier}+Ctrl+k" = "resize shrink height 10 px or 10 ppt";
-          "${modifier}+Ctrl+l" = "resize grow width 10 px or 10 ppt";
+          "${modifier}+Ctrl+Left" = "resize shrink width 10 px or 10 ppt";
+          "${modifier}+Ctrl+Down" = "resize grow height 10 px or 10 ppt";
+          "${modifier}+Ctrl+Up" = "resize shrink height 10 px or 10 ppt";
+          "${modifier}+Ctrl+Right" = "resize grow width 10 px or 10 ppt";
 
           # Modes
           "${modifier}+Shift+r" = "mode resize";

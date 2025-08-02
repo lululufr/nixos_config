@@ -26,6 +26,11 @@
       neovim.enable = true;
       vim.enable = true;
       firefox.enable = true;
+      bat.enable = true;
+      dunst.enable = true;
+      nixos-icons.enable = true;
+      rofi.enable = true;
+
     };
 
     opacity = {

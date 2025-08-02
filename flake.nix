@@ -10,7 +10,7 @@
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";  # garde Stylix sur la même branche que nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
@@ -26,74 +26,53 @@
 
   outputs = inputs@{ self, nixpkgs, flake-utils, zen-browser, stylix, nixvim, home-manager, ... }:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     in
     flake-utils.lib.eachSystem supportedSystems (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
+      let pkgs = import nixpkgs { inherit system; }; in
       {
         # ─── Packages & devShell specific to this system ────────────
         packages.zen-browser = zen-browser.packages.${system}.default;
 
-        apps.zen-browser = flake-utils.lib.mkApp {
-          drv = self.packages.${system}.zen-browser;
-        };
+        apps.zen-browser = flake-utils.lib.mkApp { drv = self.packages.${system}.zen-browser; };
 
-        devShell = pkgs.mkShell {
-          packages = [ pkgs.git self.packages.${system}.zen-browser ];
-        };
-
+        devShell = pkgs.mkShell { packages = [ pkgs.git self.packages.${system}.zen-browser ]; };
         defaultPackage = self.packages.${system}.zen-browser;
-      }
-    ) // {
+      }) // {
 
       # ─── NixOS host definition ────────────────────────────────────
       nixosConfigurations."tardis-nix" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        # Pass any needed values into the module graph
-        specialArgs = {
-          inherit self inputs;
-        };
+        specialArgs = { inherit self inputs; };
 
         modules = [
-          # Import generic Nix settings (allowUnfree, experimental‑features…)
+          # Generic Nix settings & dconf
           ./modules/system/nix-settings.nix
-          ./configuration.nix                       # main system config
 
-          stylix.nixosModules.stylix                # Stylix (system scope)
-          nixvim.nixosModules.nixvim                # NixVim
-          home-manager.nixosModules.home-manager    # HM integration
+          ./configuration.nix                      # main system config
+
+          stylix.nixosModules.stylix               # Stylix at system scope
+          home-manager.nixosModules.home-manager   # Home Manager integration
 
           # ─── Home‑Manager configuration block ────────────────────
           {
             home-manager = {
-                            useUserPackages     = true;
+              useUserPackages     = true;          # useGlobalPkgs omitted ⇒ HM gets its own pkgs
               backupFileExtension = "backup";
 
-              # Stylix pour Home Manager (nouveau nom homeModules ≥26.05)
               sharedModules = [
-                stylix.homeModules.stylix
-                # Autorise les paquets unfree (Spotify) côté Home Manager
-                ({ ... }: {
-                  nixpkgs.config.allowUnfree = true;
-                })];
+                stylix.homeModules.stylix           # Stylix for HM
+                nixvim.homeModules.nixvim           # NixVim for HM (fix “option … nixvim”)
+                ({ ... }: { nixpkgs.config.allowUnfree = true; }) # unfree pkgs inside HM
+              ];
 
-              # Rendez tous les inputs disponibles aux modules HM si besoin
               extraSpecialArgs = inputs;
-
-              # Déclare l'utilisateur principal géré par HM
               users.lucas = import ./home.nix;
             };
           }
 
-          # Ajoute Zen Browser aux paquets globaux du système
+          # Global extra packages (Zen Browser)
           ({ pkgs, ... }: {
             environment.systemPackages = [ self.packages.${pkgs.system}.zen-browser ];
           })
