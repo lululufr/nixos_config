@@ -19,6 +19,8 @@ imports = [
 	./modules/home/desktop/i3.nix
 	./modules/home/desktop/rofi.nix
 	./modules/home/desktop/services.nix
+
+  ./modules/home/desktop/stylix.nix
 ];
 
 

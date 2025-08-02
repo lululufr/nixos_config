@@ -1,6 +1,24 @@
 { config, pkgs, lib, ... }:
 
 {
+
+  programs.i3status-rust = {
+    enable = true;
+
+    bars.main = {
+      blocks = [
+        { block = "focused_window"; }
+        { block = "cpu"; }
+        { block = "memory";}
+        { block = "battery"; }
+        { block = "time"; }
+      ];
+      settings = {
+      };
+    };
+  };
+
+
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -11,10 +29,10 @@
         terminal = "alacritty";
         menu = "rofi -show drun";
 
-        fonts = {
-          names = [ "JetBrainsMono Nerd Font" ];
-          size = 10.0;
-        };
+        # fonts = {
+        #   names = [ "JetBrainsMono Nerd Font" ];
+        #   size = 10.0;
+        # };
 
         gaps = {
           inner = 2;
@@ -112,10 +130,26 @@
           { command = "--no-startup-id blueman-applet"; always = false; notification = false; }
         ];
 
-        bars = [{
-          position = "top";
-          statusCommand = "${pkgs.i3status}/bin/i3status";
-        }];
+ 
+        bars = [
+          {
+            id = "main";
+            position = "top";
+            mode = "dock";
+
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.xdg.configHome}/i3status-rust/config-main.toml";
+
+            trayOutput = "primary";
+            trayPadding = 2;
+
+            workspaceButtons = true;
+            workspaceNumbers = true;
+
+            extraConfig = ''
+              strip_workspace_numbers yes
+            '';
+          }
+        ];
       };
 
       extraConfig = ''
@@ -124,33 +158,12 @@
         for_window [class="Spotify"] move to workspace 10
         for_window [urgent=latest] focus
 
-        # Assignations de workspaces
-        assign [class="Firefox"] → 2
-        assign [class="Code"] → 3
-        assign [class="discord"] → 9
-        assign [class="Spotify"] → 10
-
-        # Focus follows mouse
         focus_follows_mouse yes
-
-        # Popup during fullscreen mode
         popup_during_fullscreen smart
-
-        # Back and forth workspace
         workspace_auto_back_and_forth yes
-
-        # Workspace names
-        set $ws1 "1:  Terminal"
-        set $ws2 "2:  Web"
-        set $ws3 "3:  Code"
-        set $ws4 "4:  Files"
-        set $ws5 "5:  Docs"
-        set $ws6 "6:  Media"
-        set $ws7 "7:  Games"
-        set $ws8 "8:  VM"
-        set $ws9 "9:  Chat"
-        set $ws10 "10:  Music"
+        set $ws1 "1:  Main"
       '';
     };
   };
 }
+

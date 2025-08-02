@@ -15,7 +15,6 @@
     ./modules/system/desktop/nvidia.nix
     ./modules/system/shell.nix
     ./modules/system/nixvim.nix
-    ./modules/system/stylix.nix
 
 
 

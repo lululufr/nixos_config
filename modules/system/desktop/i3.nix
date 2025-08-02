@@ -5,8 +5,7 @@
     enable = true;
     extraPackages = with pkgs; [
       dmenu
-      polybar
-      i3status
+      i3status-rust
       rofi
       picom
       feh
