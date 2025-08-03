@@ -27,9 +27,9 @@ programs.nixvim = {
 
 #plugin
 
-./statuscol.nix
-./lualine.nix
-./neo-tree.nix
+./plugins/statuscol.nix
+./plugins/lualine.nix
+./plugins/neo-tree.nix
 
   ];
 
