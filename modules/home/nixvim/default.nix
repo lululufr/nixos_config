@@ -24,6 +24,11 @@ programs.nixvim = {
     ./utils/toggleterm.nix
     ./utils/which-key.nix
     ./utils/wilder.nix
+
+#plugin
+
+./statuscol.nix
+
   ];
 
 
