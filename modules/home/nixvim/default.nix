@@ -30,8 +30,9 @@ programs.nixvim = {
 ./plugins/statuscol.nix
 ./plugins/lualine.nix
 ./plugins/neo-tree.nix
-    ./plugins/yanky.nix
 
+    ./plugins/yanky.nix
+    ./plugins/noice.nix
   ];
 
 
@@ -212,6 +213,17 @@ programs.nixvim = {
       action = "<CMD>Trouble diagnostics toggle<CR>";
       options.desc = "Toggle trouble";
     }
+
+#yanky
+
+	{ mode = "n"; key = "y";  action = "<Plug>(YankyYank)";        options.desc = "Yank (Yanky)"; }
+	{ mode = "n"; key = "p";  action = "<Plug>(YankyPutAfter)";    options.desc = "Put after (Yanky)"; }
+	{ mode = "n"; key = "<leader>sy"; action = "<cmd>Telescope yank_history<CR>"; options.desc = "Show yank history"; }
+
+	# Neo-tree
+	{ mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<CR>"; options.desc = "Toggle Neo-tree"; }
+	{ mode = "n"; key = "<leader>E"; action = "<cmd>Neotree reveal<CR>"; options.desc = "Reveal current file"; }
+
   ];
 };
 }
