@@ -55,6 +55,39 @@ plugins.nui = {
     };
 
   };
+
+
+
+  plugins.mini-icons = {
+    enable = true;
+    lazy   = true;        # équivalent du champ `lazy = true` en Lua
+
+    settings = {
+      file = {
+        ".keep"            = { glyph = "󰊢"; hl = "MiniIconsGrey"; };
+        "devcontainer.json" = { glyph = ""; hl = "MiniIconsAzure"; };
+      };
+      filetype = {
+        dotenv = { glyph = ""; hl = "MiniIconsYellow"; };
+      };
+    };
+
+    # Bloc `init = function() … end` → extraConfigLua
+    extraConfigLua = ''
+      -- Remplace dynamiquement nvim-web-devicons par la maquette de mini.icons
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    '';
+  };
+
+
+
+
+
+
+
 }
 
 
