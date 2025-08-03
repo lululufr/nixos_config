@@ -33,6 +33,7 @@ programs.nixvim = {
 
     ./plugins/yanky.nix
     ./plugins/noice.nix
+    ./plugins/snacks.nix
   ];
 
 
