@@ -32,13 +32,12 @@ programs.nixvim = {
 ./plugins/neo-tree.nix
 
     ./plugins/yanky.nix
-    ./plugins/noice.nix
     ./plugins/ui.nix
   ];
 
 
   dependencies.gcc.package = null;
-  plugins.web-devicons.enable = true;
+  #plugins.web-devicons.enable = true;
 
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog

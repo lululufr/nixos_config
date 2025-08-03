@@ -37,8 +37,6 @@ plugins.nui = {
             { icon = " "; key = "r"; desc = "Recent Files";      action = ":lua Snacks.dashboard.pick('oldfiles')"; }
             { icon = " "; key = "c"; desc = "Config";            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})"; }
             { icon = " "; key = "s"; desc = "Restore Session";   section = "session"; }
-            { icon = " "; key = "x"; desc = "Lazy Extras";       action = ":LazyExtras"; }
-            { icon = "󰒲 "; key = "l"; desc = "Lazy";             action = ":Lazy"; }
             { icon = " "; key = "q"; desc = "Quit";             action = ":qa"; }
           ];
         };
@@ -58,32 +56,59 @@ plugins.nui = {
 
 
 
-  plugins.mini-icons = {
+  plugins.mini = {
     enable = true;
-    lazy   = true;        # équivalent du champ `lazy = true` en Lua
-
-    settings = {
-      file = {
-        ".keep"            = { glyph = "󰊢"; hl = "MiniIconsGrey"; };
-        "devcontainer.json" = { glyph = ""; hl = "MiniIconsAzure"; };
-      };
-      filetype = {
-        dotenv = { glyph = ""; hl = "MiniIconsYellow"; };
+    modules = {
+      icons = {
+        file = {
+          ".keep"             = { glyph = "󰊢"; hl = "MiniIconsGrey"; };
+          "devcontainer.json" = { glyph = ""; hl = "MiniIconsAzure"; };
+        };
+        filetype = {
+          dotenv = { glyph = ""; hl = "MiniIconsYellow"; };
+        };
       };
     };
 
-    # Bloc `init = function() … end` → extraConfigLua
-    extraConfigLua = ''
-      -- Remplace dynamiquement nvim-web-devicons par la maquette de mini.icons
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    '';
+    mockDevIcons = true; # remplace nvim-web-devicons automatiquement
   };
 
 
+  plugins.noice = {
+    enable = true;
 
+    settings = {
+      lsp = {
+        override = {
+          "vim.lsp.util.convert_input_to_markdown_lines" = true;
+          "vim.lsp.util.stylize_markdown"                = true;
+          "cmp.entry.get_documentation"                  = true;
+        };
+      };
+
+      routes = [
+        {
+          filter = {
+            event = "msg_show";
+            any = [
+              { find = "%d+L, %d+B";       }  # ex. “5L, 100B”
+              { find = "; after #%d+";     }  # “; after #42”
+              { find = "; before #%d+";    }  # “; before #7”
+            ];
+          };
+          view = "mini";    # rendu compact
+        }
+      ];
+
+      presets = {
+        bottom_search          = true;
+        command_palette        = true;
+        long_message_to_split  = true;
+      };
+    };
+  };
+
+  plugins.notify.enable = true;
 
 
 
