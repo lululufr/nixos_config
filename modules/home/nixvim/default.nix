@@ -28,6 +28,7 @@ programs.nixvim = {
 #plugin
 
 ./statuscol.nix
+./lualine.nix
 
   ];
 

@@ -1,7 +1,11 @@
 {
+  # luukvbaal/statuscol.nvim
   plugins.statuscol = {
     enable = true;
-    settings = {
-    };
-  };
+
+    settings = rec {
+        };
+};
+
 }
+

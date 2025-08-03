@@ -4,11 +4,7 @@
   config.opts = {
     updatetime = 100; # Faster completion
 
-    number = true;
-    relativenumber = false;
-    splitbelow = true;
-    splitright = true;
-    scrolloff = 4;
+	number         = true;
 
     autoindent = true;
     clipboard = "unnamedplus";
