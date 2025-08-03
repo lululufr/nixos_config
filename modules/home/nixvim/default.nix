@@ -6,7 +6,6 @@ programs.nixvim = {
     ./bufferline.nix
     ./cmp.nix
     ./copilot-chat.nix
-    ./git.nix
     ./lightline.nix
     ./lsp/default.nix
     ./lsp/fidget.nix
@@ -27,9 +26,11 @@ programs.nixvim = {
 
 #plugin
 
+    ./plugins/git.nix
 ./plugins/statuscol.nix
 ./plugins/lualine.nix
 ./plugins/neo-tree.nix
+    ./plugins/yanky.nix
 
   ];
 
