@@ -14,12 +14,8 @@ plugins.nui = {
     settings = {
       dashboard = {
         preset = {
-          pick = ''
-            function(cmd, opts)
-              return LazyVim.pick(cmd, opts)()
-            end
-          '';
-         header = ''
+          
+	  header = ''
 
 
 	 _       _       _          __      
