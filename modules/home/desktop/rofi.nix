@@ -11,7 +11,7 @@
       icon-theme = "Papirus";
       terminal = "alacritty";
 
-      drun-display-format = "{icon} {name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+      drun-display-format = "{icon} {name}";
       window-format = "{w} · {c} · {t}";
 
       location = 0;
@@ -29,8 +29,8 @@
       parse-known-hosts = true;
 
 
-      drun-icon-size = 96;  
-      icon-size = 96; 
+      #drun-icon-size = 64;  
+      #icon-size = 64; 
       eh = 3;
 
       padding = 25;
