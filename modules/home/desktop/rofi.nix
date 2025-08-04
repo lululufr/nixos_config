@@ -29,9 +29,9 @@
       parse-known-hosts = true;
 
 
-      drun-icon-size = 96;  
-      window-icon-size = 96; 
-      eh = 10;
+      drun_icon_size = 96;  
+      window_icon_size = 96; 
+      eh = 3;
 
       padding = 25;
 
