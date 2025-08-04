@@ -22,5 +22,8 @@
     enable = true;
     backend = "glx";
     vSync = true;
+    settings = {
+	refresh-rate = 144;
+	  };
   };
 }
