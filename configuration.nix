@@ -15,9 +15,6 @@
     ./modules/system/desktop/nvidia.nix
     ./modules/system/shell.nix
 
-    #conf nvim 
-
-    ./modules/home/nixvim/default.nix
 
   ];
 
