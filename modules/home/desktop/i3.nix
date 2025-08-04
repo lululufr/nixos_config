@@ -59,7 +59,7 @@
         keybindings = lib.mkOptionDefault {
           # Applications
           "${modifier}+Return" = "exec ${terminal}";
-          "${modifier}+o" = "exec firefox";
+          "${modifier}+o" = "exec zen";
           "${modifier}+space" = "exec ${menu}";
           "${modifier}+r" = "exec rofi -show combi";
           "${modifier}+Shift+s" = "exec screenshot";

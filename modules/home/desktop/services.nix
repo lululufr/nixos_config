@@ -59,6 +59,7 @@
       ];
 
       settings = {
+	refresh-rate = 144;
         blur = {
           method = "dual_kawase";
           strength = 6;

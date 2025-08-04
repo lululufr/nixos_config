@@ -15,8 +15,8 @@
       window-format = "{w} · {c} · {t}";
 
       location = 0;
-      width = 50;
-      lines = 12;
+      #width = 50;
+      lines = 6;
       columns = 1;
 
       disable-history = false;
@@ -28,9 +28,14 @@
       parse-hosts = true;
       parse-known-hosts = true;
 
+
+      drun-icon-size = 48;  
+      window-icon-size = 48; 
+      eh = 3;
+
+      padding = 25;
+
       scrollbar-width = 4;
-      eh = 2;
-      padding = 20;
 
       matching = "fuzzy";
       sort = true;
