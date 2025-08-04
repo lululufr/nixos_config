@@ -8,48 +8,57 @@ plugins.nui = {
 	enable = true;
 };
 
-  plugins.snacks = {
-    enable = true;
 
-    settings = {
-      dashboard = {
-        preset = {
-          
-	  header = ''
-
-
-	 _       _       _          __      
-	| |_   _| |_   _| |_   _   / _|_ __ 
-	| | | | | | | | | | | | | | |_| '__|
-	| | |_| | | |_| | | |_| |_|  _| |   
-	|_|\__,_|_|\__,_|_|\__,_(_)_| |_|   
-
-        
-         '';
-          keys = [
-            { icon = " "; key = "f"; desc = "Find File";         action = ":lua Snacks.dashboard.pick('files')"; }
-            { icon = " "; key = "n"; desc = "New File";          action = ":ene | startinsert"; }
-            { icon = " "; key = "g"; desc = "Find Text";         action = ":lua Snacks.dashboard.pick('live_grep')"; }
-            { icon = " "; key = "r"; desc = "Recent Files";      action = ":lua Snacks.dashboard.pick('oldfiles')"; }
-            { icon = " "; key = "c"; desc = "Config";            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})"; }
-            { icon = " "; key = "s"; desc = "Restore Session";   section = "session"; }
-            { icon = " "; key = "q"; desc = "Quit";             action = ":qa"; }
-          ];
-        };
-      };
-
-      indent       = { enabled = true;  };
-      input        = { enabled = true;  };
-      notifier     = { enabled = true;  };
-      scope        = { enabled = true;  };
-      scroll       = { enabled = true;  };
-      statuscolumn = { enabled = false; };  # défini dans options.lua
-      toggle       = { map = "LazyVim.safe_keymap_set"; };
-      words        = { enabled = true;  };
+plugins.dashboard = {
+  enable = true;
+  settings = {
+    theme = "hyper";
+    config = {
+      header = [
+        " *       *       *          *_      "
+        "| |_   *| |*   *| |*   *   / *|_ __ "
+        "| | | | | | | | | | | | | | |_| '__|"
+        "| | |_| | | |_| | | |_| |_|  _| |   "
+        "|_|\\__,_|_|\\__,_|_|\\__,_(_)_| |_|   "
+        ""
+      ];
+      shortcut = [
+        {
+          desc = " Find File";
+          group = "@property";
+          action = "Telescope find_files";
+          key = "f";
+        }
+        {
+          desc = " New File";
+          group = "Label";
+          action = "enew";
+          key = "n";
+        }
+        {
+          desc = " Find Text";
+          group = "DiagnosticHint";
+          action = "Telescope live_grep";
+          key = "g";
+        }
+        {
+          desc = " Recent Files";
+          group = "Number";
+          action = "Telescope oldfiles";
+          key = "r";
+        }
+        {
+          desc = " Quit";
+          group = "Action";
+          action = "quit";
+          key = "q";
+        }
+      ];
     };
-
   };
-
+};
+        
+ 
 
 
   plugins.mini = {
