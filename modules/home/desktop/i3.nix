@@ -2,23 +2,6 @@
 
 {
 
-  programs.i3status-rust = {
-    enable = true;
-
-    bars.main = {
-      blocks = [
-        { block = "focused_window"; }
-        { block = "cpu"; }
-        { block = "memory";}
-        { block = "battery"; }
-        { block = "time"; }
-      ];
-      settings = {
-      };
-    };
-  };
-
-
   xsession = {
     enable = true;
     windowManager.i3 = {

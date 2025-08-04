@@ -17,6 +17,7 @@ imports = [
 
 
 	./modules/home/desktop/i3.nix
+	./modules/home/desktop/i3statusbar.nix
 	./modules/home/desktop/rofi.nix
 	./modules/home/desktop/services.nix
 
