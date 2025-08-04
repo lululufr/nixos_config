@@ -31,7 +31,7 @@
 
       drun-icon-size = 96;  
       window-icon-size = 96; 
-      eh = 3;
+      eh = 10;
 
       padding = 25;
 
