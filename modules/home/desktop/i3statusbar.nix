@@ -7,7 +7,6 @@
         {
           block = "focused_window";
           max_width = 50;
-          show_marks = "visible";
         }
         {
           block = "cpu";
@@ -60,10 +59,6 @@
       settings = {
         theme = {
           theme = "modern";
-          overrides = {
-            idle_bg = "#2e3440";
-            idle_fg = "#d8dee9";
-          };
         };
       };
     };
