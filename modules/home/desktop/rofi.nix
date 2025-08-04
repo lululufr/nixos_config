@@ -28,9 +28,10 @@
       parse-hosts = true;
       parse-known-hosts = true;
 
-
-      #drun-icon-size = 64;  
-      #icon-size = 64; 
+	extraConfig = {
+	  drun-icon-size = 48;
+	  icon-size = 48;
+	};
       eh = 3;
 
       padding = 25;
