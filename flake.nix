@@ -86,7 +86,7 @@
           {
             home-manager = {
               useUserPackages     = true;  # HM gets its own pkgs
-              backupFileExtension = "backup";
+		backupFileExtension = "backup-$(date +%Y%m%d-%H%M%S)";
 
               sharedModules = [
                 stylix.homeModules.stylix      # Stylix for HM
