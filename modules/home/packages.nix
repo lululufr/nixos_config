@@ -40,6 +40,5 @@
     nerd-fonts.ubuntu-mono
     font-awesome
 
-    affine
   ];
 }
