@@ -39,5 +39,7 @@
     nerd-fonts.fira-code
     nerd-fonts.ubuntu-mono
     font-awesome
+
+    anytype
   ];
 }
