@@ -21,7 +21,7 @@ let
 
   screenshotScript = pkgs.writeScriptBin "screenshot" ''
     #!${pkgs.bash}/bin/bash
-	${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png && ${pkgs.libnotify}/bin/notify-send "Screenshot copied to clipboard"
+	${pkgs.maim}/bin/maim -s ~/screenshot.png | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png && ${pkgs.libnotify}/bin/notify-send "Screenshot copied to clipboard"
   '';
 in
 {
