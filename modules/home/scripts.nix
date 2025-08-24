@@ -19,10 +19,13 @@ let
     esac
   '';
 
-  screenshotScript = pkgs.writeScriptBin "screenshot" ''
-    #!${pkgs.bash}/bin/bash
-	${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png && ${pkgs.libnotify}/bin/notify-send "Screenshot copied to clipboard"
-  '';
+screenshotScript = pkgs.writeScriptBin "screenshot" ''
+  #!${pkgs.bash}/bin/bash
+  ${pkgs.maim}/bin/maim -g "$(${pkgs.xrectsel}/bin/xrectsel '%wx%h+%x+%y')" | ${pkgs.xclip}/bin/xclip -selection clipboard -i -t image/png && ${pkgs.libnotify}/bin/notify-send "Screenshot copied to clipboard"
+'';
+
+
+
 in
 {
   home.packages = [
