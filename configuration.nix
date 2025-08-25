@@ -12,7 +12,7 @@
     ./modules/system/nix-settings.nix
     ./modules/system/desktop/xserver.nix
     ./modules/system/desktop/i3.nix
-    ./modules/system/desktop/nvidia.nix
+    #./modules/system/desktop/nvidia.nix
     ./modules/system/shell.nix
 
 
