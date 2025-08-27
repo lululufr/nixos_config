@@ -27,5 +27,7 @@
     fzf
     lazygit
     fd
+
+    xorg-xhost
   ];
 }
