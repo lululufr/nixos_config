@@ -28,6 +28,6 @@
     lazygit
     fd
 
-    xhost
+    xorg.xhost
   ];
 }
