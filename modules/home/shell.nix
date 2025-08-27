@@ -51,10 +51,13 @@
       setopt INC_APPEND_HISTORY INTERACTIVE_COMMENTS
       setopt NO_BEEP PROMPT_SUBST
 
-
       # FZF key bindings
       source "${pkgs.fzf}/share/fzf/key-bindings.zsh"
       source "${pkgs.fzf}/share/fzf/completion.zsh"
+
+      # 👇 Forcer ~/.local/bin dans le PATH des shells interactifs
+      path=("$HOME/.local/bin" $path)
+      typeset -U path
     '';
   };
 
@@ -108,4 +111,10 @@
       proc_gradient = true;
     };
   };
+
+  # 👇 PATH pour les shells login (complète initContent pour les interactifs)
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 }
+
