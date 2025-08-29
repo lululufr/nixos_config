@@ -16,6 +16,7 @@
     postman
     vscode
     lazygit
+    coder
 
     # Outils système et CLI
     vim
