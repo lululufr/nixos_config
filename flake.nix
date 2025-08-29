@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    # ─── External flakes ────────────────────────────────────────────
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     stylix = {
@@ -13,7 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Community NixVim (expose modules/home integration)
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +21,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, zen-browser, stylix, nixvim, home-manager, ... }:
@@ -39,9 +39,8 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        # ─── Packages & devShell specific to this system ────────────
         packages = {
-          zen-browser   = zen-browser.packages.${system}.default;
+          zen-browser = zen-browser.packages.${system}.default;
         };
 
         apps.zen-browser = flake-utils.lib.mkApp {
@@ -59,8 +58,6 @@
         defaultPackage = self.packages.${system}.zen-browser;
       })
     // {
-
-      # ─── NixOS host definition ────────────────────────────────────
       nixosConfigurations."tardis-nix" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
@@ -69,10 +66,13 @@
         modules = [
           # Generic Nix settings & dconf
           ./modules/system/nix-settings.nix
+          ./configuration.nix
 
-          ./configuration.nix               # main system config
 
-          stylix.nixosModules.stylix         # Stylix at system scope
+          # Stylix at system scope
+          stylix.nixosModules.stylix
+
+          # Home Manager
           home-manager.nixosModules.home-manager
 
           # Extra system packages (Zen-Browser + Fangel’s NixVim build)
@@ -85,15 +85,13 @@
           # ─── Home-Manager configuration block ────────────────────
           {
             home-manager = {
-              useUserPackages     = true;  # HM gets its own pkgs
-		backupFileExtension = "backup-$(date +%Y%m%d-%H%M%S)";
+              useUserPackages = true;
+              backupFileExtension = "backup-$(date +%Y%m%d-%H%M%S)";
 
               sharedModules = [
-                stylix.homeModules.stylix      # Stylix for HM
-                nixvim.homeModules.nixvim      # community NixVim module
-                ({ ... }: {
-                  nixpkgs.config.allowUnfree = true;
-                })
+                stylix.homeModules.stylix
+                nixvim.homeModules.nixvim
+                ({ ... }: { nixpkgs.config.allowUnfree = true; })
               ];
 
               extraSpecialArgs = inputs;
