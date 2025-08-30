@@ -18,6 +18,9 @@
     lazygit
     coder
 
+    # ouai a voir
+    libxml2
+
     # Outils système et CLI
     vim
     bat
