@@ -19,6 +19,7 @@
     coder
 
     # ouai a voir
+    binaryninja-free
 
     # Outils système et CLI
     vim
