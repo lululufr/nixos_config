@@ -29,5 +29,6 @@
     fd
 
     xorg.xhost
+    libxml2
   ];
 }
