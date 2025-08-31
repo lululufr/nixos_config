@@ -20,6 +20,7 @@
 
     # ouai a voir
     binaryninja-free
+    burpsuite
 
     # Outils système et CLI
     vim
