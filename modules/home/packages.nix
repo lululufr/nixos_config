@@ -23,6 +23,7 @@
     burpsuite
 
     # Outils système et CLI
+    dig
     vim
     bat
     eza
