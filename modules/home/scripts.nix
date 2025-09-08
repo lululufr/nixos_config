@@ -13,8 +13,8 @@ let
       "🔄 Logout") i3-msg exit ;;
       "🟠 Reboot") systemctl reboot ;;
       "🔴 Shutdown") systemctl poweroff ;;
-      "🖥️ Duplicate Screen") ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --auto --same-as eDP ;;
-      "🖥️ Extend Screen") ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --auto --right-of eDP ;;
+      "🖥️ Duplicate Screen") ${pkgs.xorg.xrandr}/bin/xrandr --auto --output HDMI-1 --same-as eDP-1 ;;
+      "🖥️ Extend Screen") ${pkgs.xorg.xrandr}/bin/xrandr --auto --output HDMI-1 --auto --right-of eDP-1 ;;
       *) exit 1 ;;
     esac
   '';
