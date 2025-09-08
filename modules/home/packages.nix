@@ -19,6 +19,7 @@
     coder
 
     cargo
+    jetbrains.rust-rover
 
     # ouai a voir
     binaryninja-free
