@@ -18,6 +18,8 @@
     lazygit
     coder
 
+    rust-rover
+
     # ouai a voir
     binaryninja-free
     burpsuite
@@ -45,6 +47,7 @@
     nerd-fonts.fira-code
     nerd-fonts.ubuntu-mono
     font-awesome
+
 
   ];
 
