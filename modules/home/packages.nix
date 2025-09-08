@@ -18,7 +18,7 @@
     lazygit
     coder
 
-    rust-rover
+    cargo
 
     # ouai a voir
     binaryninja-free
