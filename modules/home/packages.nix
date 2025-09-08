@@ -18,7 +18,7 @@
     lazygit
     coder
 
-    cargo
+    rustup
     jetbrains.rust-rover
 
     # ouai a voir
