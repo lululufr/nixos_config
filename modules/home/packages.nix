@@ -33,6 +33,7 @@
     tree
     tldr
     httpie
+    vlc
 
     # Fonts
     nerd-fonts.jetbrains-mono
