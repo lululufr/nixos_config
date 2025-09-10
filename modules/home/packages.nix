@@ -35,6 +35,9 @@
     httpie
     vlc
 
+    jetbrains.pycharm
+    jetbrains.rust-rover
+
     # Fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
