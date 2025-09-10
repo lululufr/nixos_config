@@ -37,6 +37,9 @@
 
     coder
 
+    #python
+    poetry
+
 
     jetbrains.pycharm-community
     jetbrains.rust-rover
