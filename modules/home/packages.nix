@@ -35,7 +35,7 @@
     httpie
     vlc
 
-    jetbrains.pycharm
+    jetbrains.pycharm-community
     jetbrains.rust-rover
 
     # Fonts
