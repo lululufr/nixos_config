@@ -34,6 +34,7 @@
     tldr
     httpie
     vlc
+	rustup
 
     coder
 
