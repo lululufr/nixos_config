@@ -38,7 +38,7 @@
     coder
 
     #python
-    python3.13
+    python3
     poetry
 
 
