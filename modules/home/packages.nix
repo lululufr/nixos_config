@@ -35,6 +35,8 @@
     httpie
     vlc
 
+    coder
+
 
     #jetbrains.pycharm-community
     #jetbrains.rust-rover
