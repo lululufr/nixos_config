@@ -35,8 +35,10 @@
     httpie
     vlc
 
+
     jetbrains.pycharm-community
     jetbrains.rust-rover
+    jetbrains-toolbox
 
     # Fonts
     nerd-fonts.jetbrains-mono
