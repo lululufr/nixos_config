@@ -36,8 +36,8 @@
     vlc
 
 
-    jetbrains.pycharm-community
-    jetbrains.rust-rover
+    #jetbrains.pycharm-community
+    #jetbrains.rust-rover
     jetbrains-toolbox
 
     # Fonts
